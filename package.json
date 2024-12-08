@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix --fix eslint page component"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@nextui-org/button": "2.0.38",
     "@nextui-org/code": "2.0.33",
     "@nextui-org/input": "2.2.5",
@@ -53,6 +54,7 @@
     "react-icons": "^5.3.0",
     "tailwind-variants": "0.1.20",
     "tailwindcss": "3.4.3",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "webpack": "^5.97.1"
   }
 }

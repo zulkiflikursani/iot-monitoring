@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
 // import { theme } from "@/config/theme";
 import BottomMenu from "@/components/Bottom-menu";
+import Link from "next/link";
 const APP_NAME = "IoT App";
 const APP_DEFAULT_TITLE = "IoT App";
 const APP_TITLE_TEMPLATE = "%s - App";
@@ -84,7 +85,7 @@ export default function RootLayout({
                     className={`${``} flex p-2 justify-center items-center  gap-1 `}
                   >
                     <span className={`font-black text-green-600 ${``}`}>
-                      FH
+                      <Link href="/">FH</Link>
                     </span>
                     <h4
                       className={`${``} text-foreground-800 font-bold tracking-tighter`}

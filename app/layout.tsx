@@ -9,15 +9,44 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 // import { theme } from "@/config/theme";
 import BottomMenu from "@/components/Bottom-menu";
+const APP_NAME = "IoT App";
+const APP_DEFAULT_TITLE = "Monitoring App";
+const APP_TITLE_TEMPLATE = "%s - App";
+const APP_DESCRIPTION = "Best HydroPro in the world!";
 
 export const metadata: Metadata = {
+  applicationName: APP_NAME,
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
   },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
+  description: APP_DESCRIPTION,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
   },
 };
 
@@ -26,6 +55,10 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

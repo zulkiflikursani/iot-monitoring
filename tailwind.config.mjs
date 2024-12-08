@@ -17,7 +17,4 @@ export default module.exports = {
   },
   darkMode: "class",
   plugins: [nextui()],
-  experimental: {
-    externalDir: true,
-  },
 };

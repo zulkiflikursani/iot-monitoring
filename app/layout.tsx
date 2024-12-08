@@ -5,12 +5,11 @@ import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/navbar";
 
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 // import { theme } from "@/config/theme";
 import BottomMenu from "@/components/Bottom-menu";
 const APP_NAME = "IoT App";
-const APP_DEFAULT_TITLE = "Monitoring App";
+const APP_DEFAULT_TITLE = "IoT App";
 const APP_TITLE_TEMPLATE = "%s - App";
 const APP_DESCRIPTION = "Best HydroPro in the world!";
 
@@ -75,7 +74,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
             {/* <Navbar /> */}
             <Navbar isBordered>

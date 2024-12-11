@@ -2,13 +2,16 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/navbar";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 import { Providers } from "./providers";
+import AuthProvider from "./context/AuthProvder";
+import { authOptions } from "./api/auth/[...nextauth]/options";
 
 import { fontSans } from "@/config/fonts";
 // import { theme } from "@/config/theme";
 import BottomMenu from "@/components/Bottom-menu";
-import Link from "next/link";
 const APP_NAME = "IoT App";
 const APP_DEFAULT_TITLE = "IoT App";
 const APP_TITLE_TEMPLATE = "%s - App";
@@ -61,11 +64,13 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
+
   return (
     <html suppressHydrationWarning lang="en">
       <head />
@@ -76,37 +81,35 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <div className="relative flex flex-col h-screen">
-            {/* <Navbar /> */}
-            <Navbar isBordered>
-              <NavbarContent justify="start">
-                <NavbarBrand className="mr-4 ">
-                  <div
-                    className={`${``} flex p-2 justify-center items-center  gap-1 `}
-                  >
-                    <span className={`font-black text-green-600 ${``}`}>
-                      <Link href="/">FH</Link>
-                    </span>
-                    <h4
-                      className={`${``} text-foreground-800 font-bold tracking-tighter`}
+          <AuthProvider>
+            <div className="relative flex flex-col h-screen">
+              {/* <Navbar /> */}
+
+              <Navbar isBordered>
+                <NavbarContent justify="start">
+                  <NavbarBrand className="mr-4 ">
+                    <div
+                      className={`${``} flex p-2 justify-center items-center  gap-1 `}
                     >
-                      FindHydroPro
-                    </h4>
-                  </div>
-                </NavbarBrand>
-              </NavbarContent>
-              {/* <NavbarContent>
-          <NavbarItem></NavbarItem>
-        </NavbarContent> */}
-              {/* <NavbarContent>
-                <Input name="search" placeholder="Cari barang ..." />
-              </NavbarContent> */}
-            </Navbar>
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <BottomMenu />
-          </div>
+                      <span className={`font-black text-green-600 ${``}`}>
+                        <Link href="/">FH</Link>
+                      </span>
+                      <h4
+                        className={`${``} text-foreground-800 font-bold tracking-tighter`}
+                      >
+                        FindHydroPro
+                      </h4>
+                    </div>
+                  </NavbarBrand>
+                </NavbarContent>
+              </Navbar>
+              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+                {children}
+              </main>
+              {(session as any)?.user?.name && <BottomMenu />}
+              {/* <BottomMen  u /> */}
+            </div>
+          </AuthProvider>
         </Providers>
       </body>
     </html>

@@ -8,6 +8,7 @@ export default async function AboutPage() {
 
   return (
     <>
+      <div className="text-[30px] py-2 mt-[-40px] mb-8 font-bold"> Room 5</div>
       <CardResult
         room={{
           ec: repo.Room5.fields.EC.doubleValue,

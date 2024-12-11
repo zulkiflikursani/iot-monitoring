@@ -8,9 +8,9 @@ interface TypeProps {
 }
 function CardResult(props: TypeProps) {
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-4 mb-8">
+    <div className="w-full flex flex-col items-center justify-center gap-4 mb-14">
       <div className="flex items-center justify-center">
-        <div className="relative flex items-center justify-center w-52 h-52 bg-black rounded-full">
+        <div className="relative flex items-center justify-center w-48 h-48 bg-black rounded-full">
           <div className="absolute w-full h-full rounded-full bg-gradient-to-r from-green-500 via-orange-500 to-yellow-500 blur-md" />
           <div className="flex items-center justify-center text-[30px] font-bold text-green-900 absolute w-[100%] h-[100%] rounded-full bg-white ">
             {props.room.ec}
@@ -21,7 +21,7 @@ function CardResult(props: TypeProps) {
         EC
       </div>
       <div className="flex items-center justify-center">
-        <div className="relative flex items-center justify-center w-52 h-52 bg-black rounded-full">
+        <div className="relative flex items-center justify-center w-48 h-48 bg-black rounded-full">
           <div className="absolute w-full h-full rounded-full bg-gradient-to-r from-green-500 via-orange-500 to-yellow-500 blur-md" />
           <div className="flex items-center justify-center text-[30px] font-bold text-green-900 absolute w-[100%] h-[100%] rounded-full bg-white ">
             {props.room.suhu}
@@ -32,7 +32,7 @@ function CardResult(props: TypeProps) {
         Suhu
       </div>
       <div className="flex items-center justify-center">
-        <div className="relative flex items-center justify-center w-52 h-52 bg-black rounded-full">
+        <div className="relative flex items-center justify-center w-48 h-48 bg-black rounded-full">
           <div className="absolute w-full h-full rounded-full bg-gradient-to-r from-green-500 via-orange-500 to-yellow-500 blur-md" />
           <div className="flex items-center justify-center text-[30px] font-bold text-green-900 absolute w-[100%] h-[100%] rounded-full bg-white ">
             {props.room.ph}

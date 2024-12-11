@@ -8,8 +8,8 @@ function BottomMenu() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed left-0 right-0 bottom-0 h-14 z-20 bg-green-600  ">
-      <div className="flex justify-around items-center gap-0">
+    <div className="fixed left-0 right-0 bottom-0 min-h-14 z-20 bg-green-600  ">
+      <div className="flex justify-around items-center gap-0 mb-6">
         <Link
           className={`flex items-center hover:bg-foreground-200 ${pathname === "/room1" ? "bg-foreground-100" : ""}`}
           href={"/room1"}

@@ -1,3 +1,4 @@
+import "dotenv/config";
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({
@@ -12,6 +13,11 @@ const withPWA = withPWAInit({
   },
 });
 
-const nextConfig = {};
+const nextConfig = {
+  env: {
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  },
+};
 
 export default withPWA(nextConfig);

@@ -24,8 +24,8 @@ export const authOptions: NextAuthOptions = {
         ) {
           const user = {
             id: "1", // Convert the id to a string
-            name: "John Doe",
-            email: "john@example.com",
+            name: "user",
+            email: "user@example.com",
           };
 
           return user;

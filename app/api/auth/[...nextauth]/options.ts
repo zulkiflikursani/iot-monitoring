@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
       authorize: async (credentials) => {
         if (
           credentials?.username === "adminiot@gmail.com" &&
-          credentials?.password === "777888"
+          credentials?.password === "admin"
         ) {
           const user = {
             id: "1", // Convert the id to a string
